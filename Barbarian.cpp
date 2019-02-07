@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Character.hpp"
 #include "Barbarian.hpp"
+#include <stdlib.h>
 
 Barbarian::Barbarian() : Character(0, 12, 6, 6) {
 	charName = "Barbarian";
