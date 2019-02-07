@@ -26,6 +26,9 @@ void Vampire::defend(int roll) {
 	}
 	else {
 		int damage = roll - defendRoll - this->armor; //calculate damage 
+		if (damage < 0) {
+			damage = 0;
+		}
 		damageIN(damage); //add damage
 		std::cout << "The vampire takes " << damage << " points of damage" << std::endl;
 	}

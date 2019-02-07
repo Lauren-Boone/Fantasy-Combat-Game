@@ -26,6 +26,9 @@ void BlueMen::defend(int roll) {
 	}
 	std::cout << "Blue men rolled " << defenseRoll << " in defending" << std::endl;
 	int damage = roll - defenseRoll - this->armor;
+	if (damage < 0) {
+		damage = 0;
+	}
 	this->damageIN(damage);
 
 }

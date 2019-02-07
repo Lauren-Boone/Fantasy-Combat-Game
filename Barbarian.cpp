@@ -10,7 +10,7 @@ Barbarian::Barbarian() : Character(0, 12) {
 
 void Barbarian::attack(Character* defender) {
 	int attackRoll = 0;
-	for (int i = 2; i < 2; ++i) { //2D6 (roll twice)
+	for (int i = 0; i < 2; ++i) { //2D6 (roll twice)
 		attackRoll += 1 + rand() % 6;
 	}
 	std::cout << "The Barbarian rolled a " << attackRoll << " for attack" << std::endl;
@@ -25,6 +25,9 @@ void Barbarian::defend(int roll) {
 	}
 	std::cout << "The barbarian rolled a " << defendRoll << std::endl;
 	int damage = roll - defendRoll - this->armor;
+	if (damage < 0) {
+		damage = 0;
+	}
 	this->damageIN(damage);
 }
 

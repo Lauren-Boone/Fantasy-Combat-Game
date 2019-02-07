@@ -31,6 +31,9 @@ void Medusa::defend(int roll) {
 	int defendRoll = 1 + rand() % 6;
 	std::cout << "Medusa rolled a " << defendRoll << " in defense" << std::endl;
 	int damage = roll - defendRoll - this->armor;
+	if (damage < 0) {
+		damage = 0;
+	}
 	this->damageIN(damage);
 }
 

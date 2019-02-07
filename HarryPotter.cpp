@@ -26,6 +26,9 @@ void HarryPotter::defend(int roll) {
 		defenseRoll += 1 + rand() % 6;
 	}
 	int damage = roll - defenseRoll - this->armor;
+	if (damage < 0) {
+		damage = 0;
+	}
 	std::cout << "Harry Pooter rolled a " << defenseRoll << " in defense" << std::endl;
 	this->damageIN(damage);
 }
