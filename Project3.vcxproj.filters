@@ -33,6 +33,12 @@
     <ClInclude Include="BlueMen.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Medusa.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HarryPotter.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Character.cpp">
@@ -51,6 +57,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BlueMen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Medusa.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HarryPotter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

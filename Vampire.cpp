@@ -4,20 +4,20 @@
 #include <stdlib.h>
 
 
-Vampire::Vampire() : Character(1,18,12,6){
+Vampire::Vampire() : Character(1,18){
 	isAlive = true;
 	charName = "Vampire";
 
 }
 
 void Vampire::attack(Character *defender) {
-	int attackRoll = 1 + rand() % attackDie;
+	int attackRoll = 1 + rand() % 12;
 	std::cout << "Vampire rolls " << attackRoll << " points of damage to " << defender->getName() << std::endl;
 	defender->defend(attackRoll);
 	
 }
 
-int Vampire::defend(int roll) {
+void Vampire::defend(int roll) {
 	int defendRoll = 1 + rand() % defenseDie;
 	std::cout << "The vampire rolled " << defendRoll << " points to defend the attack" << std::endl;
 	if (defendRoll > 3) { //activate charm
@@ -29,7 +29,7 @@ int Vampire::defend(int roll) {
 		damageIN(damage); //add damage
 		std::cout << "The vampire takes " << damage << " points of damage" << std::endl;
 	}
-	return defendRoll;
+	
 }
 
 

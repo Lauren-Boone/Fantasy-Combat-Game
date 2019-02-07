@@ -3,7 +3,7 @@
 #include "BlueMen.hpp"
 #include <stdlib.h>
 
-BlueMen::BlueMen() : Character(3, 12, 10, 6) {
+BlueMen::BlueMen() : Character(3, 12) {
 	numDefense_die = 3;
 	charName = "Blue Men";
 }
@@ -19,7 +19,7 @@ void BlueMen::attack(Character* defender) {
 }
 
 
-int BlueMen::defend(int roll) {
+void BlueMen::defend(int roll) {
 	int defenseRoll = 0;
 	for (int i = 0; i < numDefense_die; ++i) {
 		defenseRoll += 1 + rand() % 6;

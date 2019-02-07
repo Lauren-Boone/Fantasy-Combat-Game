@@ -2,12 +2,9 @@
 #include "Character.hpp"
 
 
-Character::Character(int armorNum, int strengthNum, int attackDieIN, int defenseDieIN) {
+Character::Character(int armorNum, int strengthNum) {
 	armor = armorNum;
 	strength = strengthNum;
-	attackDie = attackDieIN;
-	defenseDie = defenseDieIN;
-
 }
 
 bool Character::check_isAlive() {

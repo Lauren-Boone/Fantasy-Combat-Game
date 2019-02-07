@@ -1,20 +1,16 @@
 #pragma once
 #include <iostream>
-#ifndef VAMPIRE_HPP
-#define VAMPIRE_HPP
+#ifndef MEDUSA_HPP
+#define MEDUSA_HPP
 #include "Character.hpp"
 
-class Vampire : public Character
+class Medusa : public Character
 {
-protected:
-	
 public:
-	Vampire();
-
+	Medusa();
 	virtual void attack(Character* defender);
-	virtual void defend(int roll);
+	virtual void defend(int);
 	virtual void damageIN(int x);
 	virtual void medusaCharm();
-
 };
 #endif

@@ -3,7 +3,7 @@
 #include "Barbarian.hpp"
 #include <stdlib.h>
 
-Barbarian::Barbarian() : Character(0, 12, 6, 6) {
+Barbarian::Barbarian() : Character(0, 12) {
 	charName = "Barbarian";
 
 }
@@ -18,7 +18,7 @@ void Barbarian::attack(Character* defender) {
 }
 
 
-int Barbarian::defend(int roll) {
+void Barbarian::defend(int roll) {
 	int defendRoll = 0;
 	for (int j = 0; j < 2; ++j) {
 		defendRoll += 1 + rand() % 6;

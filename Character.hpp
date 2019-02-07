@@ -15,9 +15,9 @@ protected:
 	bool isAlive;
 	std::string charName;
 public:
-	Character(int armorNum, int strengthNum, int attackDieIN, int defenseDieIN);
+	Character(int armorNum, int strengthNum);
 	virtual void attack(Character* defender)=0;
-	virtual int defend(int roll)=0;
+	virtual void defend(int roll)=0;
 	virtual void damageIN(int) = 0;
 	virtual void medusaCharm() = 0;
 	bool check_isAlive();
