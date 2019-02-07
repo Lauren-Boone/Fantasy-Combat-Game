@@ -7,8 +7,8 @@
 
 Game::Game() {
 	numRound = 0;
-	character1 = NULL;
-	character2 = NULL;
+	attacker = NULL;
+	defender = NULL;
 
 }
 
@@ -22,7 +22,7 @@ void Game::gameMenu() {
 		switch (choice) {
 		case 1:
 			Vampire vamp;
-			character1 = &vamp;
+			attacker = &vamp;
 		}
 	}
 }

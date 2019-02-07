@@ -10,8 +10,8 @@ class Game
 {
 private:
 	int numRound;
-	Character* character1;
-	Character* character2;
+	Character* attacker;
+	Character* defender;
 
 public:
 	Game();

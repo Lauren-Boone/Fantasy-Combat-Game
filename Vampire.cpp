@@ -13,7 +13,7 @@ Vampire::Vampire() : Character(1,18,12,6){
 void Vampire::attack(Character *defender) {
 	int attackRoll = 1 + rand() % attackDie;
 	std::cout << "Vampire rolls " << attackRoll << " points of damage to " << defender->getName() << std::endl;
-	defend(attackRoll);
+	defender->defend(attackRoll);
 	
 }
 
