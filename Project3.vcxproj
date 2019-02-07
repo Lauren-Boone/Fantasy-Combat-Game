@@ -131,6 +131,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="HarryPotter.cpp" />
     <ClCompile Include="InputValidation.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Medusa.cpp" />
     <ClCompile Include="Vampire.cpp" />
   </ItemGroup>

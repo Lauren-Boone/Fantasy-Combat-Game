@@ -18,7 +18,7 @@ void Vampire::attack(Character *defender) {
 }
 
 void Vampire::defend(int roll) {
-	int defendRoll = 1 + rand() % defenseDie;
+	int defendRoll = 1 + rand() % 6;
 	std::cout << "The vampire rolled " << defendRoll << " points to defend the attack" << std::endl;
 	if (defendRoll > 3) { //activate charm
 		std::cout << "The vampire was able to charm the attacker." <<
@@ -46,7 +46,7 @@ void Vampire::damageIN(int x) {
 
 
 void Vampire::medusaCharm() {
-	int defendRoll = 1 + rand() % defenseDie;
+	int defendRoll = 1 + rand() % 6;
 	if (defendRoll > 3) {
 		std::cout << "The vampire was able to charm Medusa." <<
 			" Glare will be useless against the vampire's charm" << std::endl;

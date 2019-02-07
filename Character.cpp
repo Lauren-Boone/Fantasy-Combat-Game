@@ -5,6 +5,7 @@
 Character::Character(int armorNum, int strengthNum) {
 	armor = armorNum;
 	strength = strengthNum;
+	isAlive = true;
 }
 
 bool Character::check_isAlive() {
