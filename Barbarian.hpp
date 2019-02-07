@@ -10,7 +10,7 @@ public:
 	Barbarian();
 
 	virtual void attack(Character* defender);
-	virtual int defend(int);
+	virtual void defend(int);
 	virtual void damageIN(int x);
 	virtual void medusaCharm();
 };
