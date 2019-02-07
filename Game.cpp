@@ -20,54 +20,60 @@ Game::~Game() {
 
 void Game::gameMenu() {
 	int choice = 0;
-	for (int x = 1; x < 3; ++x) {
-		std::cout << "Please select character " << x << std::endl;
-		std::cout << "1. Vampire\n2. Barbarian\n3. Blue Men\n4. Medusa\n5. Harry Potter" << std::endl;
-		choice = getIntinRange(0, 6);
-		switch (choice) {
-		case 1:
-			if (x == 1) {
-				attacker = &vamp;
-			}
-			else {
-				defender = &vamp;
-			}
-			break;
-		case 2:
-			if (x == 1) {
-				attacker = &barbarian;
-			}
-			else {
-				defender = &barbarian;
-			}
-			break;
-		case 3:
-			if (x == 1) {
-				attacker = &bluemen;
-			}
-			else {
-				defender = &bluemen;
-			}
-			break;
-		case 4:
-			if (x == 1) {
-				attacker = &medusa;
-			}
-			else {
-				defender = &medusa;
-			}
-			break;
-		case 5:
-			if (x == 1) {
-				attacker = &harry;
-			}
-			else {
-				defender = &harry;
-			}
+	while (choice != 6) {
+		for (int x = 1; x < 3; ++x) {
+			std::cout << "Please select character " << x << std::endl;
+			std::cout << "1. Vampire\n2. Barbarian\n3. Blue Men\n4. Medusa\n5. Harry Potter\n6. Quit" << std::endl;
+			choice = getIntinRange(0, 6);
+			switch (choice) {
+			case 1:
+				if (x == 1) {
+					attacker = &vamp;
+				}
+				else {
+					defender = &vamp;
+				}
+				break;
+			case 2:
+				if (x == 1) {
+					attacker = &barbarian;
+				}
+				else {
+					defender = &barbarian;
+				}
+				break;
+			case 3:
+				if (x == 1) {
+					attacker = &bluemen;
+				}
+				else {
+					defender = &bluemen;
+				}
+				break;
+			case 4:
+				if (x == 1) {
+					attacker = &medusa;
+				}
+				else {
+					defender = &medusa;
+				}
+				break;
+			case 5:
+				if (x == 1) {
+					attacker = &harry;
+				}
+				else {
+					defender = &harry;
+				}
+				break;
+			case 6:
+				x = 3;
+				std::cout << "Exiting" << std::endl;
 
+			}
 		}
+		gameCombat();
 	}
-	gameCombat();
 }
 
 void Game::gameCombat() {
@@ -75,7 +81,9 @@ void Game::gameCombat() {
 		std::cout << "ROUND " << numRound << std::endl;
 		attacker->attack(defender);
 		defender->attack(attacker);
-		
-	
+		numRound++;
+	}
+	if (defender->check_isAlive()) {
+		std::cout << defender->getName() << " has won the game!!" << std::endl;
 	}
 }
