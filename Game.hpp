@@ -1,4 +1,4 @@
-#pragma once
+//#pragma once
 #include <iostream>
 #ifndef GAME_HPP
 #define GAME_HPP
@@ -14,13 +14,9 @@ class Game
 {
 private:
 	int numRound;
-	Character* attacker;
-	Character* defender;
-	Vampire vamp;
-	Barbarian barbarian;
-	BlueMen bluemen;
-	Medusa medusa;
-	HarryPotter harry;
+	Character* character2;
+	Character* character1;
+	
 
 public:
 	Game();

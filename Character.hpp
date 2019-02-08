@@ -1,4 +1,4 @@
-#pragma once
+//#pragma once
 #include<iostream>
 #ifndef CHARACTER_HPP
 #define CHARACTER_HPP
@@ -23,5 +23,9 @@ public:
 	bool check_isAlive();
 	std::string getName();
 	int getStrengthPoints();
+	int getArmor();
+	void setName(std::string name);
+	void printInfo();
+
 };
 #endif

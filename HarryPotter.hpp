@@ -1,4 +1,4 @@
-#pragma once
+//#pragma once
 #include <iostream>
 #include "Character.hpp"
 #ifndef HARRYPOTTER_HPP
@@ -16,5 +16,6 @@ public:
 	virtual void defend(int roll);
 	virtual void damageIN(int x);
 	virtual void medusaCharm();
+	//virtual void printInfo();
 };
 #endif

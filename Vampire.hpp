@@ -1,4 +1,4 @@
-#pragma once
+//#pragma once
 #include <iostream>
 #ifndef VAMPIRE_HPP
 #define VAMPIRE_HPP
@@ -15,6 +15,7 @@ public:
 	virtual void defend(int roll);
 	virtual void damageIN(int x);
 	virtual void medusaCharm();
+	//virtual void printInfo();
 
 };
 #endif

@@ -2,10 +2,11 @@
 #include "Character.hpp"
 #include "Medusa.hpp"
 #include <stdlib.h>
-
+#include <string>
+#include <iomanip>
 
 Medusa::Medusa() :Character(3,8){
-	isAlive = true;
+	//isAlive = true;
 	charName = "Medusa";
 }
 
@@ -13,14 +14,14 @@ Medusa::Medusa() :Character(3,8){
 void Medusa::attack(Character* defender) {
 	int attackRoll = 0;
 	for (int x = 0; x < 2; ++x) {
-		attackRoll = 1 + rand() % 6;
+		attackRoll += 1 + rand() % 6;
 	}
-	std::cout << "Medusa Rolled a " << attackRoll << " for attack" << std::endl;
+	std::cout << "Medusa's Attacking Roll: " << attackRoll << std::endl;
 	if (attackRoll == 12) {
+		std::cout << "Medusa has glared at her opponet" << std::endl;
 		defender->medusaCharm();
 	}
 	else {
-		std::cout << "Medusa has glared at her opponet" << std::endl;
 		defender->defend(attackRoll);
 	}
 	
@@ -29,15 +30,22 @@ void Medusa::attack(Character* defender) {
 
 void Medusa::defend(int roll) {
 	int defendRoll = 1 + rand() % 6;
-	std::cout << "Medusa rolled a " << defendRoll << " in defense" << std::endl;
+	std::cout << "Medusa's Defending Roll: " << defendRoll << std::endl;;
 	int damage = roll - defendRoll - this->armor;
+	if (damage < 0) {
+		damage = 0;
+	}
+	std::cout << "Total Damage: " << damage << std::endl;
+	std::cout << "Medusa takes " << damage << " points of damage" << std::endl;
 	this->damageIN(damage);
 }
 
 
 void Medusa::damageIN(int x) {
 	strength -= x;
+	std::cout << "Medusa has " << strength << " strength points" << std::endl;
 	if (strength <= 0) {
+		strength = 0;
 		std::cout << "Medusa has died" << std::endl;
 		isAlive = false;
 	}

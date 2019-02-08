@@ -1,8 +1,9 @@
-#pragma once
+//#pragma once
 #include <iostream>
+#include "Character.hpp"
+
 #ifndef BLUEMEN_HPP
 #define BLUEMEN_HPP
-#include "Character.hpp"
 
 class BlueMen : public Character
 {
@@ -15,5 +16,6 @@ public:
 	virtual void defend(int);
 	virtual void damageIN(int x);
 	virtual void medusaCharm();
+	//virtual void printInfo();
 };
 #endif
