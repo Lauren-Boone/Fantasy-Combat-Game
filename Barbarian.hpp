@@ -1,4 +1,4 @@
-#pragma once
+//#pragma once
 #include <iostream>
 #include "Character.hpp"
 #ifndef BARBARIAN_HPP
@@ -13,5 +13,6 @@ public:
 	virtual void defend(int);
 	virtual void damageIN(int x);
 	virtual void medusaCharm();
+	//virtual void printInfo();
 };
 #endif

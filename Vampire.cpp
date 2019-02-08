@@ -2,24 +2,26 @@
 #include "Character.hpp"
 #include "Vampire.hpp"
 #include <stdlib.h>
+#include <string>
+#include <iomanip>
 
 
 Vampire::Vampire() : Character(1,18){
-	isAlive = true;
-	charName = "Vampire";
+	//isAlive = true;
+	setName("Vampire");
 
 }
 
 void Vampire::attack(Character *defender) {
 	int attackRoll = 1 + rand() % 12;
-	std::cout << "Vampire rolls " << attackRoll << " points of damage to " << defender->getName() << std::endl;
+	std::cout << "Attack: Vampire rolls " << attackRoll << " points of damage to " << defender->getName() << std::endl;
 	defender->defend(attackRoll);
 	
 }
 
 void Vampire::defend(int roll) {
 	int defendRoll = 1 + rand() % 6;
-	std::cout << "The vampire rolled " << defendRoll << " points to defend the attack" << std::endl;
+	std::cout << "Defend: The vampire rolled " << defendRoll << " points to defend the attack" << std::endl;
 	if (defendRoll > 3) { //activate charm
 		std::cout << "The vampire was able to charm the attacker." <<
 			" There attack will be useless against this defense" << std::endl;
@@ -39,7 +41,8 @@ void Vampire::defend(int roll) {
 void Vampire::damageIN(int x) {
 	strength -= x;
 	std::cout << "The vampire now has " << this->strength << " points left." << std::endl;
-	if (strength >= 0) {
+	if (strength <= 0) {
+		strength = 0;
 		this->isAlive = false;
 		std::cout << "The vampire has died" << std::endl;
 	}
@@ -59,3 +62,5 @@ void Vampire::medusaCharm() {
 		std::cout << "Vampire has been turned to stone!" << std::endl;
 	}
 }
+
+

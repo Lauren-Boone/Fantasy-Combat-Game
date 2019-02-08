@@ -1,4 +1,4 @@
-#pragma once
+//#pragma once
 #include <iostream>
 #ifndef MEDUSA_HPP
 #define MEDUSA_HPP
@@ -12,5 +12,6 @@ public:
 	virtual void defend(int);
 	virtual void damageIN(int x);
 	virtual void medusaCharm();
+	//virtual void printInfo();
 };
 #endif

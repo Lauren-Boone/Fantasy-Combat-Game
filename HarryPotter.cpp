@@ -2,10 +2,11 @@
 #include "Character.hpp"
 #include "HarryPotter.hpp"
 #include <stdlib.h>
-
+#include <string>
+#include <iomanip>
 
 HarryPotter::HarryPotter() :Character(0, 10) {
-	isAlive = true;
+	//isAlive = true;
 	charName = "Harry Potter";
 	deathCount = 0;
 }
@@ -16,7 +17,7 @@ void HarryPotter::attack(Character* defender) {
 	for (int x = 0; x < 2; ++x) {
 		attackRoll += 1 + rand() % 6;
 	}
-	std::cout << "Harry Potter has rolled a " << attackRoll << " for attack " << std::endl;
+	std::cout << "Attack: Harry Potter has rolled a " << attackRoll << " for attack " << std::endl;
 	defender->defend(attackRoll);
 }
 
@@ -29,7 +30,7 @@ void HarryPotter::defend(int roll) {
 	if (damage < 0) {
 		damage = 0;
 	}
-	std::cout << "Harry Pooter rolled a " << defenseRoll << " in defense" << std::endl;
+	std::cout << "Defend: Harry Potter rolled a " << defenseRoll << " in defense" << std::endl;
 	this->damageIN(damage);
 }
 
@@ -44,6 +45,7 @@ void HarryPotter::damageIN(int x) {
 	}
 	else if (strength <= 0 && deathCount != 0) {
 		std::cout << "Harry Potter has died for good." << std::endl;
+		strength = 0;
 		isAlive = false;
 	}
 }
@@ -52,3 +54,5 @@ void HarryPotter::damageIN(int x) {
 void HarryPotter::medusaCharm() {
 	this->damageIN(this->strength);
 }
+
+
