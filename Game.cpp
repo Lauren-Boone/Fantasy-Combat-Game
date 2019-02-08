@@ -97,15 +97,21 @@ void Game::gameMenu() {
 		if (playQuit == 2) {
 			choice = 6;
 		}
+		else {
+			delete character1;
+			delete character2;
+		}
 	}
 }
 
 void Game::gameCombat() {
 	while (character1->check_isAlive() && character2->check_isAlive()) {
-		std::cout << "\n------------------------------------------------" << std::endl;
-		std::cout << "		ROUND " << numRound << std::endl;
+		std::cout << "\n\n------------------------------------------------" << std::endl;
+		std::cout << "		>>>ROUND<<< " << numRound << std::endl;
 		std::cout << "------------------------------------------------" << std::endl;
-		std::cout << "\n-----------------------------------------" << std::endl;
+		std::cout << "\nCharacter 1 attacks first" << std::endl;
+		//std::cout << "\n------------------------------------------------" << std::endl;
+		std::cout << "-----------------------------------------" << std::endl;
 		std::cout << "|Attacker	Armor	Strength Points |" << std::endl;
 		character1->printInfo();
 		std::cout << "-----------------------------------------" << std::endl;
@@ -114,14 +120,16 @@ void Game::gameCombat() {
 		character1->attack(character2);
 		
 
-
-		std::cout << "\n-----------------------------------------" << std::endl;
-		std::cout << "|Attacker	Armor	Strength Points |" << std::endl;
-		character2->printInfo();
-		std::cout << "-----------------------------------------" << std::endl;
-		std::cout << "|Defender	Armor	Strength Points |" << std::endl;
-		character1->printInfo();
-		character2->attack(character1);
+		if (character1->check_isAlive() && character2->check_isAlive()) {
+			std::cout << "\n\nCharacter 2 Attacks" << std::endl;
+			std::cout << "-----------------------------------------" << std::endl;
+			std::cout << "|Attacker	Armor	Strength Points |" << std::endl;
+			character2->printInfo();
+			std::cout << "-----------------------------------------" << std::endl;
+			std::cout << "|Defender	Armor	Strength Points |" << std::endl;
+			character1->printInfo();
+			character2->attack(character1);
+		}
 
 		
 		

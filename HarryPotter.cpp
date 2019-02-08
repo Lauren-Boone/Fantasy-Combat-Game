@@ -17,7 +17,7 @@ void HarryPotter::attack(Character* defender) {
 	for (int x = 0; x < 2; ++x) {
 		attackRoll += 1 + rand() % 6;
 	}
-	std::cout << "Attack: Harry Potter has rolled a " << attackRoll << " for attack " << std::endl;
+	std::cout << "Harry's Attacking Roll: " << attackRoll << std::endl;
 	defender->defend(attackRoll);
 }
 
@@ -30,7 +30,8 @@ void HarryPotter::defend(int roll) {
 	if (damage < 0) {
 		damage = 0;
 	}
-	std::cout << "Defend: Harry Potter rolled a " << defenseRoll << " in defense" << std::endl;
+	std::cout << "Harry's Defending Roll: " << defenseRoll << std::endl;
+	std::cout << "Total Damage: " << damage << std::endl;
 	this->damageIN(damage);
 }
 

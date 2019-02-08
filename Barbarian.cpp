@@ -15,7 +15,7 @@ void Barbarian::attack(Character* defender) {
 	for (int i = 0; i < 2; ++i) { //2D6 (roll twice)
 		attackRoll += 1 + rand() % 6;
 	}
-	std::cout << "Attack: The Barbarian rolled a " << attackRoll << " for attack" << std::endl;
+	std::cout << "Barbarian's Attacking Roll: " << attackRoll << std::endl;
 	defender->defend(attackRoll);
 }
 
@@ -25,20 +25,22 @@ void Barbarian::defend(int roll) {
 	for (int j = 0; j < 2; ++j) {
 		defendRoll += 1 + rand() % 6;
 	}
-	std::cout << "Defend: The barbarian rolled a " << defendRoll << " in defense\n" << std::endl;
+	std::cout << "Barbarian's Defending Roll: " << defendRoll << std::endl;
 	int damage = roll - defendRoll - this->armor;
 	if (damage < 0) {
 		damage = 0;
 	}
+	std::cout << "Total Damage: " << damage << std::endl;
 	this->damageIN(damage);
 }
 
 
 void Barbarian::damageIN(int x) {
 	this->strength -= x;
-	std::cout << "The barbarian takes " << x << " points of damage" <<
-		"\nThe barbarians now has " << strength << " strength points" << std::endl;
-	if (strength <= 0) {
+	if (strength > 0) {
+		std::cout << "The barbarians now has " << strength << " strength points" << std::endl;
+	}
+	else if (strength <= 0) {
 		strength = 0;
 		this->isAlive = false;
 		std::cout << "The barabian has died" << std::endl;

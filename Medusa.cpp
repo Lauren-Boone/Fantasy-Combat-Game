@@ -14,9 +14,9 @@ Medusa::Medusa() :Character(3,8){
 void Medusa::attack(Character* defender) {
 	int attackRoll = 0;
 	for (int x = 0; x < 2; ++x) {
-		attackRoll = 1 + rand() % 6;
+		attackRoll += 1 + rand() % 6;
 	}
-	std::cout << "Attack: Medusa Rolled a " << attackRoll << " for attack" << std::endl;
+	std::cout << "Medusa's Attacking Roll: " << attackRoll << std::endl;
 	if (attackRoll == 12) {
 		std::cout << "Medusa has glared at her opponet" << std::endl;
 		defender->medusaCharm();
@@ -30,11 +30,12 @@ void Medusa::attack(Character* defender) {
 
 void Medusa::defend(int roll) {
 	int defendRoll = 1 + rand() % 6;
-	std::cout << "Defend: Medusa rolled a " << defendRoll << " in defense" << std::endl;
+	std::cout << "Medusa's Defending Roll: " << defendRoll << std::endl;;
 	int damage = roll - defendRoll - this->armor;
 	if (damage < 0) {
 		damage = 0;
 	}
+	std::cout << "Total Damage: " << damage << std::endl;
 	std::cout << "Medusa takes " << damage << " points of damage" << std::endl;
 	this->damageIN(damage);
 }

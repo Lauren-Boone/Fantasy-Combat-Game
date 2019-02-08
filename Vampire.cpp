@@ -14,25 +14,27 @@ Vampire::Vampire() : Character(1,18){
 
 void Vampire::attack(Character *defender) {
 	int attackRoll = 1 + rand() % 12;
-	std::cout << "Attack: Vampire rolls " << attackRoll << " points of damage to " << defender->getName() << std::endl;
+	std::cout << "Vampire's Attacking Roll: " << attackRoll << std::endl;
 	defender->defend(attackRoll);
 	
 }
 
 void Vampire::defend(int roll) {
 	int defendRoll = 1 + rand() % 6;
-	std::cout << "Defend: The vampire rolled " << defendRoll << " points to defend the attack" << std::endl;
+	std::cout << "Vampire's Defending Roll: " << defendRoll << std::endl;
 	if (defendRoll > 3) { //activate charm
 		std::cout << "The vampire was able to charm the attacker." <<
-			" There attack will be useless against this defense" << std::endl;
+			"\n There attack will be useless against this defense" << std::endl;
 	}
 	else {
 		int damage = roll - defendRoll - this->armor; //calculate damage 
 		if (damage < 0) {
 			damage = 0;
 		}
-		damageIN(damage); //add damage
+		std::cout << "Total Damage: " << damage << std::endl;
 		std::cout << "The vampire takes " << damage << " points of damage" << std::endl;
+		damageIN(damage); //add damage
+		
 	}
 	
 }
