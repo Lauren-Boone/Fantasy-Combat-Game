@@ -96,8 +96,10 @@ void Game::gameMenu() {
 		int playQuit = getIntinRange(0, 3);
 		if (playQuit == 2) {
 			choice = 6;
+			
 		}
 		else {
+			numRound = 1;
 			delete character1;
 			delete character2;
 		}

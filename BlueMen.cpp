@@ -1,3 +1,10 @@
+/***************************************************************
+Program: BlueMen.cpp
+Name: Lauren Boone
+Date: 2/8/19
+Description: This is the blueMen class definitions which is
+inherited from character class.
+***************************************************************/
 #include <iostream>
 #include "Character.hpp"
 #include "BlueMen.hpp"
@@ -49,20 +56,25 @@ void BlueMen::damageIN(int x) {
 	else if (x >= 12) {
 		numDefense_die -= 3;
 	}
-	std::cout << "Blue Men take " << x << " points of damage. \nStrength is " << strength << std::endl;
+	
 	if (strength <= 0) {
 		strength = 0;
+		std::cout << "Blue Men take " << x << " points of damage. \nStrength is " << strength << std::endl;
 		std::cout << "The blue men have died" << std::endl;
 		isAlive = false;
+	}
+	else {
+		std::cout << "Blue Men take " << x << " points of damage. \nStrength is " << strength << std::endl;
 	}
 }
 
 
 
-void BlueMen::medusaCharm() {
+/*void BlueMen::medusaCharm() {
 	std::cout << "the blue men have been turned to stone" << std::endl;
 	damageIN(this->strength);
 }
+*/
 
 
 

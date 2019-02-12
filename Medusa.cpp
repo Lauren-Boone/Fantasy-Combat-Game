@@ -1,3 +1,10 @@
+/***************************************************************
+Program: Medusa.cpp
+Name: Lauren Boone
+Date: 2/8/19
+Description: This is the Medusa class definitions which is
+inherited from character class.
+***************************************************************/
 #include <iostream>
 #include "Character.hpp"
 #include "Medusa.hpp"
@@ -17,9 +24,14 @@ void Medusa::attack(Character* defender) {
 		attackRoll += 1 + rand() % 6;
 	}
 	std::cout << "Medusa's Attacking Roll: " << attackRoll << std::endl;
-	if (attackRoll == 12) {
+	
+	if (attackRoll == 12 && defender->getName() !="Vampire") {
 		std::cout << "Medusa has glared at her opponet" << std::endl;
-		defender->medusaCharm();
+		defender->damageIN(1000);
+	}
+	else if (attackRoll == 12 && defender->getName() == "Vampire") {
+		std::cout << "Medusa has glared at her opponet" << std::endl;
+		defender->defend(100);
 	}
 	else {
 		defender->defend(attackRoll);
@@ -43,18 +55,23 @@ void Medusa::defend(int roll) {
 
 void Medusa::damageIN(int x) {
 	strength -= x;
-	std::cout << "Medusa has " << strength << " strength points" << std::endl;
+	
 	if (strength <= 0) {
 		strength = 0;
+		std::cout << "Medusa has " << strength << " strength points" << std::endl;
 		std::cout << "Medusa has died" << std::endl;
 		isAlive = false;
+	}
+	else {
+		std::cout << "Medusa has " << strength << " strength points" << std::endl;
 	}
 
 }
 
-
+/*
 void Medusa::medusaCharm() {
 	std::cout << "Medusa has turned the defender to stone" << std::endl;
 	this->damageIN(this->strength);
 }
+*/
 

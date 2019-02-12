@@ -1,6 +1,13 @@
 #include <iostream>
 #include "Character.hpp"
 #include "Barbarian.hpp"
+/***************************************************************
+Program: Barbarian.cpp
+Name: Lauren Boone
+Date: 2/8/19
+Description: This is the Barbarian class definitions which is 
+inherited from character class.
+***************************************************************/
 #include <stdlib.h>
 #include <string>
 #include <iomanip>
@@ -47,9 +54,10 @@ void Barbarian::damageIN(int x) {
 	}
 }
 
-
+/*
 void Barbarian::medusaCharm() {
 	std::cout << "The barbarians has been charmed by medusa and turned to stone" << std::endl;
 	this->damageIN(this->strength);
 }
+*/
 

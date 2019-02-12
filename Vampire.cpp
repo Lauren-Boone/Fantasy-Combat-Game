@@ -1,3 +1,10 @@
+/***************************************************************
+Program: Vampire.cpp
+Name: Lauren Boone
+Date: 2/8/19
+Description: This is the Vampire class definitions which is
+inherited from character class.
+***************************************************************/
 #include <iostream>
 #include "Character.hpp"
 #include "Vampire.hpp"
@@ -26,7 +33,7 @@ void Vampire::defend(int roll) {
 		std::cout << "The vampire was able to charm the attacker." <<
 			"\n There attack will be useless against this defense" << std::endl;
 	}
-	else {
+	else if (roll !=100 && defendRoll <=3){
 		int damage = roll - defendRoll - this->armor; //calculate damage 
 		if (damage < 0) {
 			damage = 0;
@@ -36,24 +43,32 @@ void Vampire::defend(int roll) {
 		damageIN(damage); //add damage
 		
 	}
+	else if (roll ==100) {
+		std::cout << " The vampire was unable to charm Medusa's glare" << std::endl;
+		damageIN(100000);
+	}
 	
 }
 
 
 void Vampire::damageIN(int x) {
 	strength -= x;
-	std::cout << "The vampire now has " << this->strength << " points left." << std::endl;
+	
 	if (strength <= 0) {
 		strength = 0;
 		this->isAlive = false;
+		std::cout << "The vampire now has " << this->strength << " strength points." << std::endl;
 		std::cout << "The vampire has died" << std::endl;
+	}
+	else {
+		std::cout << "The vampire now has " << this->strength << " points left." << std::endl;
 	}
 }
 
 
 
 
-void Vampire::medusaCharm() {
+/*void Vampire::medusaCharm() {
 	int defendRoll = 1 + rand() % 6;
 	if (defendRoll > 3) {
 		std::cout << "The vampire was able to charm Medusa." <<
@@ -64,5 +79,5 @@ void Vampire::medusaCharm() {
 		std::cout << "Vampire has been turned to stone!" << std::endl;
 	}
 }
-
+*/
 

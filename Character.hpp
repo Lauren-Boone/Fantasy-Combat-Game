@@ -1,3 +1,10 @@
+/***************************************************************
+Program: Character.hpp
+Name: Lauren Boone
+Date: 2/8/19
+Description: This is the Character class which is a base class for
+all the different characters. 
+***************************************************************/
 //#pragma once
 #include<iostream>
 #ifndef CHARACTER_HPP
@@ -8,8 +15,6 @@
 class Character
 {
 protected:
-	int attackDie; //dice type
-	int defenseDie; //dice type
 	int armor; 
 	int strength;
 	bool isAlive;
@@ -19,7 +24,7 @@ public:
 	virtual void attack(Character* defender)=0;
 	virtual void defend(int roll)=0;
 	virtual void damageIN(int) = 0;
-	virtual void medusaCharm() = 0;
+	//virtual void medusaCharm() = 0;
 	bool check_isAlive();
 	std::string getName();
 	int getStrengthPoints();
