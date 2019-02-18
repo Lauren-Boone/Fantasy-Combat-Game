@@ -16,7 +16,11 @@ Barbarian::Barbarian() : Character(0, 12) {
 	charName = "Barbarian";
 
 }
-
+/*************************************
+attack()
+This functions has instructions for
+how the Barbarian will attack
+*******************************************/
 void Barbarian::attack(Character* defender) {
 	int attackRoll = 0;
 	for (int i = 0; i < 2; ++i) { //2D6 (roll twice)
@@ -26,7 +30,12 @@ void Barbarian::attack(Character* defender) {
 	defender->defend(attackRoll);
 }
 
-
+/*********************************************
+defend()
+This functions has instructions for how the
+barbarian defends attacks based on their roll
+damage is calculated and sent to damageIn()
+*******************************************/
 void Barbarian::defend(int roll) {
 	int defendRoll = 0;
 	for (int j = 0; j < 2; ++j) {
@@ -42,6 +51,12 @@ void Barbarian::defend(int roll) {
 }
 
 
+/********************************
+damageIn
+This functions calculates strength
+based on damage. If strength is 0
+the character isAlive = false;
+********************************/
 void Barbarian::damageIN(int x) {
 	this->strength -= x;
 	if (strength > 0) {
@@ -54,10 +69,4 @@ void Barbarian::damageIN(int x) {
 	}
 }
 
-/*
-void Barbarian::medusaCharm() {
-	std::cout << "The barbarians has been charmed by medusa and turned to stone" << std::endl;
-	this->damageIN(this->strength);
-}
-*/
 

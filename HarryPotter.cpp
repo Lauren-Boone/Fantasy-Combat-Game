@@ -1,6 +1,3 @@
-#include <iostream>
-#include "Character.hpp"
-#include "HarryPotter.hpp"
 /***************************************************************
 Program: HarryPotter.cpp
 Name: Lauren Boone
@@ -8,6 +5,9 @@ Date: 2/8/19
 Description: This is the HarryPotter class definitions which is
 inherited from character class.
 ***************************************************************/
+#include <iostream>
+#include "Character.hpp"
+#include "HarryPotter.hpp"
 #include <stdlib.h>
 #include <string>
 #include <iomanip>
@@ -18,7 +18,11 @@ HarryPotter::HarryPotter() :Character(0, 10) {
 	deathCount = 0;
 }
 
-
+/*************************************
+attack()
+This functions has instructions for
+how the Harry will attack
+*******************************************/
 void HarryPotter::attack(Character* defender) {
 	int attackRoll = 0;
 	for (int x = 0; x < 2; ++x) {
@@ -28,6 +32,12 @@ void HarryPotter::attack(Character* defender) {
 	defender->defend(attackRoll);
 }
 
+/*********************************************
+defend()
+This functions has instructions for how the
+Harry defends attacks based on their roll
+damage is calculated and sent to damageIn()
+*******************************************/
 void HarryPotter::defend(int roll) {
 	int defenseRoll = 0;
 	for (int i = 0; i < 2; ++i) {
@@ -42,7 +52,17 @@ void HarryPotter::defend(int roll) {
 	this->damageIN(damage);
 }
 
-
+/********************************
+damageIn
+This functions calculates strength
+based on damage. If strength is 0
+the character isAlive = false;
+Special Ability: If it is harry's
+first life when he dies then he 
+comes back to life with 20 strength
+points. The next time he dies 
+he does not come back to life.
+********************************/
 void HarryPotter::damageIN(int x) {
 	strength -= x;
 
@@ -66,9 +86,6 @@ void HarryPotter::damageIN(int x) {
 }
 
 
-/*void HarryPotter::medusaCharm() {
-	this->damageIN(this->strength);
-}
-*/
+
 
 

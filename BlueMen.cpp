@@ -18,7 +18,11 @@ BlueMen::BlueMen() : Character(3, 12) {
 	
 }
 
-
+/*************************************
+attack()
+This functions has instructions for
+how the BlueMEn will attack
+*******************************************/
 void BlueMen::attack(Character* defender) {
 	int attackRoll=0;
 	for (int x = 0; x < 2; ++x) {
@@ -28,7 +32,12 @@ void BlueMen::attack(Character* defender) {
 	defender->defend(attackRoll);
 }
 
-
+/*********************************************
+defend()
+This functions has instructions for how the
+Blue Men defends attacks based on their roll
+damage is calculated and sent to damageIn()
+*******************************************/
 void BlueMen::defend(int roll) {
 	int defenseRoll = 0;
 	for (int i = 0; i < numDefense_die; ++i) {
@@ -44,7 +53,15 @@ void BlueMen::defend(int roll) {
 
 }
 
-
+/********************************
+damageIn
+This functions calculates strength
+based on damage. If strength is 0
+the character isAlive = false;
+Special ability: For each
+4points of damages they loose 
+one defend die.
+********************************/
 void BlueMen::damageIN(int x) {
 	strength -= x;
 	if (x >= 4) { //mob
@@ -70,11 +87,7 @@ void BlueMen::damageIN(int x) {
 
 
 
-/*void BlueMen::medusaCharm() {
-	std::cout << "the blue men have been turned to stone" << std::endl;
-	damageIN(this->strength);
-}
-*/
+
 
 
 

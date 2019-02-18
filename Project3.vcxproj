@@ -122,6 +122,7 @@
     <ClInclude Include="HarryPotter.hpp" />
     <ClInclude Include="InputValidation.hpp" />
     <ClInclude Include="Medusa.hpp" />
+    <ClInclude Include="Menu.hpp" />
     <ClInclude Include="Vampire.hpp" />
   </ItemGroup>
   <ItemGroup>
@@ -133,6 +134,7 @@
     <ClCompile Include="InputValidation.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Medusa.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Vampire.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
