@@ -12,9 +12,9 @@ inherited from character class.
 #include <string>
 #include <iomanip>
 
-Medusa::Medusa() :Character(3,8){
+Medusa::Medusa(std::string name) :Character(3,8, name){
 	//isAlive = true;
-	charName = "Medusa";
+	
 }
 
 /*************************************

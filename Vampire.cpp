@@ -13,9 +13,9 @@ inherited from character class.
 #include <iomanip>
 
 
-Vampire::Vampire() : Character(1,18){
+Vampire::Vampire(std::string name) : Character(1,18, name){
 	//isAlive = true;
-	setName("Vampire");
+
 
 }
 /*************************************

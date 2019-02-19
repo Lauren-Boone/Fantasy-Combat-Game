@@ -8,6 +8,7 @@ from character class.
 //#pragma once
 #include <iostream>
 #include "Character.hpp"
+#include <string>
 
 #ifndef BLUEMEN_HPP
 #define BLUEMEN_HPP
@@ -18,7 +19,7 @@ protected:
 	int numDefense_die;
 
 public:
-	BlueMen();
+	BlueMen(std::string name);
 	virtual void attack(Character* defender);
 	virtual void defend(int);
 	virtual void damageIN(int x);

@@ -20,7 +20,7 @@ protected:
 	bool isAlive;
 	std::string charName;
 public:
-	Character(int armorNum, int strengthNum);
+	Character(int armorNum, int strengthNum, std::string name);
 	virtual void attack(Character* defender)=0;
 	virtual void defend(int roll)=0;
 	virtual void damageIN(int) = 0;

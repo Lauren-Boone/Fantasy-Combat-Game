@@ -12,9 +12,9 @@ inherited from character class.
 #include <string>
 #include <iomanip>
 
-HarryPotter::HarryPotter() :Character(0, 10) {
+HarryPotter::HarryPotter(std::string name) :Character(0, 10, name) {
 	//isAlive = true;
-	charName = "Harry Potter";
+	
 	deathCount = 0;
 }
 

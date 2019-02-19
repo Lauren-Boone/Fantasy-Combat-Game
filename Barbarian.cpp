@@ -12,9 +12,8 @@ inherited from character class.
 #include <string>
 #include <iomanip>
 
-Barbarian::Barbarian() : Character(0, 12) {
-	charName = "Barbarian";
-
+Barbarian::Barbarian(std::string name) : Character(0, 12, name) {
+	
 }
 /*************************************
 attack()

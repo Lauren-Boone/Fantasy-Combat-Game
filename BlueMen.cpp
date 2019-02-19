@@ -12,9 +12,8 @@ inherited from character class.
 #include <string>
 #include <iomanip>
 
-BlueMen::BlueMen() : Character(3, 12) {
+BlueMen::BlueMen(std::string name) : Character(3, 12, name) {
 	numDefense_die = 3;
-	charName = "Blue Men";
 	
 }
 

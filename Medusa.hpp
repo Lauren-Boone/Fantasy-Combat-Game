@@ -10,11 +10,12 @@ from character class.
 #ifndef MEDUSA_HPP
 #define MEDUSA_HPP
 #include "Character.hpp"
+#include <string>
 
 class Medusa : public Character
 {
 public:
-	Medusa();
+	Medusa(std::string name);
 	virtual void attack(Character* defender);
 	virtual void defend(int);
 	virtual void damageIN(int x);

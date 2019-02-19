@@ -11,11 +11,11 @@ all the different characters.
 #include <iomanip>
 
 
-Character::Character(int armorNum, int strengthNum) {
+Character::Character(int armorNum, int strengthNum, std::string name) {
 	armor = armorNum;
 	strength = strengthNum;
 	isAlive = true;
-	//charName = name;
+	setName(name);
 }
 
 bool Character::check_isAlive() {

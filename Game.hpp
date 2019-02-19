@@ -16,15 +16,19 @@ runs the combat for the characters.
 #include "Medusa.hpp"
 #include "HarryPotter.hpp"
 #include "Menu.hpp"
+#include "Container.hpp"
 
 
 class Game
 {
 private:
 	int numRound;
-	Character* character2;
-	Character* character1;
+	//Character* character2;
+	//Character* character1;
 	Menu menu1;
+	Container* team1;
+	Container* team2;
+	Container* losers;
 	
 
 public:
@@ -32,6 +36,7 @@ public:
 	~Game();
 	void gameMenu();
 	void gameCombat();
+	//void setTeamSize(int num);
 
 
 
