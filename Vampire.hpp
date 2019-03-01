@@ -16,12 +16,14 @@ class Vampire : public Character
 {
 protected:
 	
+	
 public:
 	Vampire(std::string name);
 
 	virtual void attack(Character* defender);
 	virtual void defend(int roll);
 	virtual void damageIN(int x);
+
 	//virtual void medusaCharm();
 	//virtual void printInfo();
 

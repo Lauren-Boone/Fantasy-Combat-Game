@@ -14,6 +14,9 @@ Container::~Container() {
 	Team* temp = head, *garbage;
 	while (temp != nullptr) {
 		garbage = temp;
+		if (garbage->player != nullptr) {
+			delete garbage->player;
+		}
 		temp = temp->next;
 		delete garbage;
 	}
@@ -29,16 +32,61 @@ bool Container::isEmpty() {
 	}
 }
 
-void Container::addBack(Character* player, std::string name) {
+void Container::addBack(Character* player) {
 	if (isEmpty()) {
-		Team *playerIn = new Team(player, name, nullptr, tail);
+		Team *playerIn = new Team(player, nullptr, tail);
 		head = playerIn;
 		tail = playerIn;
+		//playerIn->prev = head;
+		//playerIn->next = tail;
+		tail->next = nullptr;
+		tail->prev = head;
+		
 	}
 	else {
-		Team* playerIn = new Team(player, name, nullptr, tail);
+		Team* playerIn = new Team(player, nullptr, tail);
+		tail->prev = tail;
 		tail->next = playerIn;
 		tail = playerIn;
+	}
+}
+
+void Container::moveHeadBack() {
+	if (head != nullptr) {
+		Team *tempHead = head;
+		head = head->next;
+		//tempHead->prev = tail->prev;
+		if (head == tail) {
+			tail = head;
+			tail->next = nullptr;
+			head->prev = nullptr;
+			//head->next = tail;
+			//tail->prev = head;
+		}
+		else {
+			tail->prev = tail;
+			tail = tempHead;
+			tail->next = nullptr;
+		}
+	}
+}
+
+void Container::addFront(Character* player) {
+	if (isEmpty()) {
+		//Team* playerIn = player->getFront();
+		Team *playerIn = new Team(player, nullptr, nullptr);
+		head = playerIn;
+		tail = playerIn;
+		head->next = nullptr;
+		tail->next = nullptr;
+	}
+	else {
+		Team* playerIn = new Team(player, head, nullptr);
+		//head->next = head;
+		head->prev = playerIn;
+		//playerIn-> next = head;
+		//playerIn->prev = nullptr;
+		head = playerIn;
 	}
 }
 
@@ -73,9 +121,9 @@ void Container::printData() {
 		std::cout << "No players" << std::endl;
 	}
 	else {
-		std::cout << "Players: " << std::endl;
+		//std::cout << "Players: " << std::endl;
 		while (print != nullptr) {
-			std::cout << print->player->getName() << " ";
+			std::cout << print->player->getName() << "\n";
 			print = print->next;
 		}
 		std::cout << std::endl;

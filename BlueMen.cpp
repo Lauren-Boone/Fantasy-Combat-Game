@@ -27,7 +27,7 @@ void BlueMen::attack(Character* defender) {
 	for (int x = 0; x < 2; ++x) {
 		attackRoll += 1 + rand() % 10;
 	}
-	std::cout << "Blue Men's Attacking Roll: " << attackRoll << std::endl;
+	//std::cout << "Blue Men's Attacking Roll: " << attackRoll << std::endl;
 	defender->defend(attackRoll);
 }
 
@@ -42,12 +42,12 @@ void BlueMen::defend(int roll) {
 	for (int i = 0; i < numDefense_die; ++i) {
 		defenseRoll += 1 + rand() % 6;
 	}
-	std::cout << "Blue Men's Defense Roll: " << defenseRoll << std::endl;
+	//std::cout << "Blue Men's Defense Roll: " << defenseRoll << std::endl;
 	int damage = roll - defenseRoll - this->armor;
 	if (damage < 0) {
 		damage = 0;
 	}
-	std::cout << "Total Damage: " << damage << std::endl;
+	//std::cout << "Total Damage: " << damage << std::endl;
 	this->damageIN(damage);
 
 }
@@ -80,7 +80,7 @@ void BlueMen::damageIN(int x) {
 		isAlive = false;
 	}
 	else {
-		std::cout << "Blue Men take " << x << " points of damage. \nStrength is " << strength << std::endl;
+		//std::cout << "Blue Men take " << x << " points of damage. \nStrength is " << strength << std::endl;
 	}
 }
 

@@ -27,18 +27,18 @@ that has charmed her.
 *******************************************/
 void Medusa::attack(Character* defender) {
 	int attackRoll = 0;
-	if (defender->getName() == "Vampire") { //if defender is vampire
+	if (defender->getType() == "Vampire") { //if defender is vampire
 		for (int x = 0; x < 2; ++x) {
 			attackRoll += 1 + rand() % 6;
 		}
 		
 		if (attackRoll == 12) {
-			std::cout << "Medusa rolled: 12" << std::endl;
-			std::cout << "Medusa thinks about glaring at the vampire" << std::endl;
+			//std::cout << "Medusa rolled: 12" << std::endl;
+			//std::cout << "Medusa thinks about glaring at the vampire" << std::endl;
 			defender->defend(100);//check to see if vamprie charmed
 		}
 		else {
-			std::cout << "Medusa's attack Roll: " << attackRoll << std::endl;
+			//std::cout << "Medusa's attack Roll: " << attackRoll << std::endl;
 			defender->defend(attackRoll);
 		}
 	}
@@ -46,10 +46,10 @@ void Medusa::attack(Character* defender) {
 		for (int x = 0; x < 2; ++x) {
 			attackRoll += 1 + rand() % 6;
 		}
-		std::cout << "Medusa's Attacking Roll: " << attackRoll << std::endl;
+		//std::cout << "Medusa's Attacking Roll: " << attackRoll << std::endl;
 
 		if (attackRoll == 12) {
-			std::cout << "Medusa has glared at her opponet" << std::endl;
+			//std::cout << "Medusa has glared at her opponet" << std::endl;
 			defender->damageIN(1000);
 		}
 		else {
@@ -67,13 +67,13 @@ damage is calculated and sent to damageIn()
 *******************************************/
 void Medusa::defend(int roll) {
 	int defendRoll = 1 + rand() % 6;
-	std::cout << "Medusa's Defending Roll: " << defendRoll << std::endl;;
+	//std::cout << "Medusa's Defending Roll: " << defendRoll << std::endl;;
 	int damage = roll - defendRoll - this->armor;
 	if (damage < 0) {
 		damage = 0;
 	}
-	std::cout << "Total Damage: " << damage << std::endl;
-	std::cout << "Medusa takes " << damage << " points of damage" << std::endl;
+	//std::cout << "Total Damage: " << damage << std::endl;
+	//std::cout << "Medusa takes " << damage << " points of damage" << std::endl;
 	this->damageIN(damage);
 }
 
@@ -88,12 +88,12 @@ void Medusa::damageIN(int x) {
 	
 	if (strength <= 0) {
 		strength = 0;
-		std::cout << "Medusa has " << strength << " strength points" << std::endl;
-		std::cout << "Medusa has died" << std::endl;
+		//std::cout << "Medusa has " << strength << " strength points" << std::endl;
+		//std::cout << "Medusa has died" << std::endl;
 		isAlive = false;
 	}
 	else {
-		std::cout << "Medusa has " << strength << " strength points" << std::endl;
+		//std::cout << "Medusa has " << strength << " strength points" << std::endl;
 	}
 
 }

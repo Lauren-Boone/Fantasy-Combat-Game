@@ -17,6 +17,7 @@ runs the combat for the characters.
 #include "HarryPotter.hpp"
 #include "Menu.hpp"
 #include "Container.hpp"
+#include <string>
 
 
 class Game
@@ -36,6 +37,7 @@ public:
 	~Game();
 	void gameMenu();
 	void gameCombat();
+	std::string getCharName();
 	//void setTeamSize(int num);
 
 

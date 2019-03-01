@@ -12,9 +12,9 @@ private:
 		Team* next;
 		Team* prev;
 		Character* player;
-		Team(Character* playerIn, std::string name, Team* nextIn, Team* prevIn) {
+		Team(Character* playerIn, Team* nextIn, Team* prevIn) {
 			player = playerIn;
-			playerIn->setName(name);
+			//playerIn->setName(name);
 			next = nextIn;
 			prev = prevIn;
 		}
@@ -46,9 +46,11 @@ public:
 	Container();
 	~Container();
 	bool isEmpty();
-	void addBack(Character* player, std::string name);
+	void addBack(Character* player);
 	Character* getFront();
 	void removeFront();
+	void moveHeadBack();
+	void addFront(Character* player);
 	void printData();
 };
 #endif

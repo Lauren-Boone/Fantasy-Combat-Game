@@ -18,6 +18,11 @@ Character::Character(int armorNum, int strengthNum, std::string name) {
 	setName(name);
 }
 
+Character::~Character()
+{
+
+}
+
 bool Character::check_isAlive() {
 	return isAlive;
 }
@@ -36,6 +41,11 @@ int Character::getArmor() {
 }
 
 
+
+std::string Character::getType() {
+	return type;
+}
+
 void Character::setName(std::string name) {
 	charName = name;
 }
@@ -45,8 +55,8 @@ This function is used to print the defender/attacker
 infor before battle
 ***************************************************/
 void Character::printInfo(){
-std::cout << "|" << std::left << std::setw(11) << charName
-<< std::right << std::setw(5) << armor << std::setw(9) << strength << std::setw(14) << "|" <<
+std::cout << "*|" << std::left << std::setw(11) << charName
+<< std::right << std::setw(5) << armor << std::setw(9) << strength << std::setw(14) << " |*" <<
 std::endl;
-std::cout << "-----------------------------------------" << std::endl;
+std::cout << "*---------------------------------------*" << std::endl;
 }

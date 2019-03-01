@@ -16,7 +16,7 @@ class Barbarian : public Character
 {
 public:
 	Barbarian(std::string name);
-
+	
 	virtual void attack(Character* defender);
 	virtual void defend(int);
 	virtual void damageIN(int x);
