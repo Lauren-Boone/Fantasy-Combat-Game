@@ -32,6 +32,8 @@ public:
 	std::string getType();
 	int getStrengthPoints();
 	int getArmor();
+	void recoverPoints(Character* player);
+	void setStrength(int num);
 	void setName(std::string name);
 	void printInfo();
 

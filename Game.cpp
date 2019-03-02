@@ -131,6 +131,7 @@ void Game::gameMenu() {
 			delete team1;
 			delete team2;
 			delete losers;
+			
 		}
 	}
 }
@@ -195,6 +196,7 @@ void Game::gameCombat() {
 		if (character1->check_isAlive()) {
 			//character 1 won
 			std::cout << "*      " << character1->getName() << " has won the match!!        *" << std::endl;
+			character1->recoverPoints(character1);
 			team1->moveHeadBack();
 			losers->addFront(character2);
 			team2->removeFront();
@@ -202,6 +204,7 @@ void Game::gameCombat() {
 		else {
 			//character 2 won
 			std::cout << "*      " << character2->getName() << " has won the match!!        *" << std::endl;
+			character2->recoverPoints(character2);
 			team2->moveHeadBack();
 			losers->addFront(character1);
 			team1->removeFront();

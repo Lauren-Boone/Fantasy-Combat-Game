@@ -39,13 +39,16 @@ void Container::addBack(Character* player) {
 		tail = playerIn;
 		//playerIn->prev = head;
 		//playerIn->next = tail;
-		tail->next = nullptr;
-		tail->prev = head;
-		
+		//tail->next = nullptr;
+		//if (tail != nullptr) {
+		//	tail->prev = playerIn;
+	//	}
+		head->next = playerIn;
+		tail->prev = playerIn;
 	}
 	else {
 		Team* playerIn = new Team(player, nullptr, tail);
-		tail->prev = tail;
+		//tail->prev = tail;
 		tail->next = playerIn;
 		tail = playerIn;
 	}
@@ -56,17 +59,21 @@ void Container::moveHeadBack() {
 		Team *tempHead = head;
 		head = head->next;
 		//tempHead->prev = tail->prev;
-		if (head == tail) {
+		/*if (head == tail) {
 			tail = head;
 			tail->next = nullptr;
 			head->prev = nullptr;
 			//head->next = tail;
 			//tail->prev = head;
-		}
-		else {
-			tail->prev = tail;
+		}*/
+		 
+			tail->next = tempHead;
+			tempHead->prev = tail;
+			//tail->prev = tail;
 			tail = tempHead;
 			tail->next = nullptr;
+			if (head == nullptr) {
+				head = tail;
 		}
 	}
 }
