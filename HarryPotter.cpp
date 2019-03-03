@@ -75,7 +75,7 @@ void HarryPotter::damageIN(int x) {
 		//std::cout << "Harry Potter took " << x << " points of damage" << std::endl;
 		std::cout << "Harry Potter has died but came back to life wil 20 strength points" << std::endl;
 	}
-	else if (strength <= 0 && deathCount != 0) {
+	else if (strength <= 0 && deathCount >= 0) {
 		strength = 0;
 		//std::cout << "Harry Potter took " << x << " points of damage" << std::endl;
 		std::cout << "Harry Potter has " << strength << " points of strength" << std::endl;
