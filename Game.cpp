@@ -16,6 +16,7 @@ game
 #include "HarryPotter.hpp"
 #include "InputValidation.hpp"
 #include <string>
+#include <iomanip>
 
 
 Game::Game() {
@@ -58,9 +59,9 @@ void Game::gameMenu() {
 		std::cout << "*	Welcome to Fantasy Combat!	*" << std::endl;
 		std::cout << "*****************************************\n" << std::endl;
 		for (int i = 1; i < 3; ++i) {
-			std::cout << "How many characters do you want in team " << i << " ?" << std::endl;
+			std::cout << "\nHow many characters do you want in team " << i << " ?" << std::endl;
 			numPlayers = getPositiveInt();
-			for (int x = 0; x < numPlayers; ++x) {
+			for (int x = 1; x < (numPlayers+1); ++x) {
 				std::cout << "*****************************************" << std::endl;
 				std::cout << "* Please select character " << x << ":	        *" << std::endl;
 				std::cout << "*---------------------------------------*" << std::endl;
@@ -152,15 +153,18 @@ void Game::gameCombat() {
 		std::cout << "\n\n*****************************************" << std::endl;
 		std::cout << "*	   MATCH " << match << " BEGINS	        *" << std::endl;
 		std::cout << "*****************************************" << std::endl;
+		std::cout << "*                                       *" << std::endl;
 		Character* character1 = team1->getFront();
 		Character* character2 = team2->getFront();
 		//check to make sure the players are alive
-
+		std::cout << "*              TEAM 1                   *" << std::endl;
 		std::cout << "*---------------------------------------*" << std::endl;
-		std::cout << "*|Player 1    Armor   Strength Points  |*" << std::endl;
+		std::cout << "*|Name       Armor   Strength Points   |*" << std::endl;
 		character1->printInfo(); //print character info
+		std::cout << "*                                       *" << std::endl;
+		std::cout << "*              TEAM 2                   *" << std::endl;
 		std::cout << "*---------------------------------------*" << std::endl;
-		std::cout << "*|Player 2	Armor   Strength Points|*" << std::endl;
+		std::cout << "*|Name       Armor   Strength Points   |*" << std::endl;
 		character2->printInfo();//print attacker info
 		while (character1->check_isAlive() && character2->check_isAlive()) {
 			////std::cout << "\n\n------------------------------------------------" << std::endl;
@@ -191,11 +195,12 @@ void Game::gameCombat() {
 		}
 
 		//Once a character dies determine the winner
-		std::cout << "*	    MATCH " << match << " OVER	   	*" << std::endl;
+		std::cout << "*\n	    MATCH " << match << " OVER	   	*" << std::endl;
 		std::cout << "*****************************************" << std::endl;
+		std::cout << "*            Total Rounds: " << numRound << "            *" << std::endl;
 		if (character1->check_isAlive()) {
 			//character 1 won
-			std::cout << "*      " << character1->getName() << " has won the match!!        *" << std::endl;
+			std::cout << "*        " << character1->getName() << " has won the match!!          *" << std::endl;
 			character1->recoverPoints(character1);
 			team1->moveHeadBack();
 			losers->addFront(character2);
@@ -203,7 +208,7 @@ void Game::gameCombat() {
 		}
 		else {
 			//character 2 won
-			std::cout << "*      " << character2->getName() << " has won the match!!        *" << std::endl;
+			std::cout << "*        " << character2->getName() << " has won the match!!          *" << std::endl;
 			character2->recoverPoints(character2);
 			team2->moveHeadBack();
 			losers->addFront(character1);
@@ -217,14 +222,21 @@ void Game::gameCombat() {
 		std::cout << std::endl;
 	} while (!team1->isEmpty() && !team2->isEmpty());
 	std::cout << "\n\n*****************************************" << std::endl;
-	std::cout << "*          TOURNAMENT OVER          *" << std::endl;
+	std::cout << "*          TOURNAMENT OVER              *" << std::endl;
 	if (team1->isEmpty()) {
-		std::cout << "*       Team 2 won the tournament        *" << std::endl;
+		std::cout << "*       Team 2 won the tournament       *" << std::endl;
 	}
 	else {
-		std::cout << "*       Team 1 won the tournament     *" << std::endl;
+		std::cout << "*       Team 1 won the tournament        *" << std::endl;
 	}
 	std::cout << "*****************************************" << std::endl;
+	std::cout << "\nWould you like to view the list of loosers?" << std::endl;
+	std::cout <<"1. Yes\n2. No" << std::endl;
+	int seeLoser = getIntinRange(0, 3);
+	if (seeLoser == 1) {
+		std::cout << "Losers:\n----------\n";
+		losers->printData();
+	}
 }
 
 

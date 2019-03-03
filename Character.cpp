@@ -55,8 +55,8 @@ void Character::setName(std::string name) {
 
 void Character::setStrength(int num) {
 	strength += num;
-	std::cout << "Points Recovered during rest: " << num << std::endl;
-	std::cout << "Total Strength " << strength << std::endl;
+	std::cout << "*    Points Recovered during rest: " << num << "    *" <<std::endl;
+	std::cout << "*         Total Strength " << strength << "             *"<< std::endl;
 }
 
 /***********************************************

@@ -1,3 +1,10 @@
+/**********************************************************
+File: Container.cpp
+Name: Lauren Boone
+Date 2/24/19
+Description: This class uses a linked list stack structure
+to hold Fantasy Combat Team members
+**********************************************************/
 #include <iostream>
 #include "Character.hpp"
 #include "Container.hpp"
@@ -23,6 +30,11 @@ Container::~Container() {
 	delete temp;
 }
 
+/***********************************
+inEmpty()
+This function checks to see if the
+stack is empty
+**********************************/
 bool Container::isEmpty() {
 	if (head == nullptr) {
 		return true;
@@ -32,19 +44,19 @@ bool Container::isEmpty() {
 	}
 }
 
+/****************************************
+addBack()
+This function a a player to the back
+of the list
+*********************************************/
 void Container::addBack(Character* player) {
 	if (isEmpty()) {
 		Team *playerIn = new Team(player, nullptr, tail);
 		head = playerIn;
 		tail = playerIn;
-		//playerIn->prev = head;
-		//playerIn->next = tail;
-		//tail->next = nullptr;
-		//if (tail != nullptr) {
-		//	tail->prev = playerIn;
-	//	}
-		head->next = playerIn;
-		tail->prev = playerIn;
+	
+		head->next = nullptr;
+		tail->prev = nullptr;
 	}
 	else {
 		Team* playerIn = new Team(player, nullptr, tail);
@@ -54,30 +66,36 @@ void Container::addBack(Character* player) {
 	}
 }
 
+
+/******************************************
+moveHeadBack()
+This function is called for the winning team.
+The head it moved to the end of the list
+*******************************************/
 void Container::moveHeadBack() {
 	if (head != nullptr) {
 		Team *tempHead = head;
 		head = head->next;
-		//tempHead->prev = tail->prev;
-		/*if (head == tail) {
+		if (head == nullptr) {
+			head = tempHead;
 			tail = head;
-			tail->next = nullptr;
-			head->prev = nullptr;
-			//head->next = tail;
-			//tail->prev = head;
-		}*/
-		 
+		}
+		else{
 			tail->next = tempHead;
 			tempHead->prev = tail;
 			//tail->prev = tail;
 			tail = tempHead;
 			tail->next = nullptr;
-			if (head == nullptr) {
-				head = tail;
 		}
 	}
 }
 
+
+/**********************************************************
+addFront()
+This function is called to add loosers to the front of 
+a list of loosers
+*********************************************************/
 void Container::addFront(Character* player) {
 	if (isEmpty()) {
 		//Team* playerIn = player->getFront();
@@ -102,7 +120,11 @@ Character* Container::getFront() {
 }
 
 
-
+/**********************************************
+remvoeFront()
+This functions removes the looser from the linked 
+list and set the head to next
+**********************************************/
 void Container::removeFront() {
 	if (head != nullptr) {
 		Team* garbage = head;
@@ -121,7 +143,10 @@ void Container::removeFront() {
 }
 
 
-
+/****************************************************
+printData()
+This function prints the names of all the loosers
+****************************************************/
 void Container::printData() {
 	Team* print = head;
 	if (print == nullptr) {

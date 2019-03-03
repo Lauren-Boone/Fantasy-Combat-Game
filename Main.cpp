@@ -12,5 +12,5 @@ fanstasy combat game
 int main() {
 	Game game;
 	game.gameMenu();
-	
+	return 0;
 }
