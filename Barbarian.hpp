@@ -10,12 +10,13 @@ from character class.
 #include "Character.hpp"
 #ifndef BARBARIAN_HPP
 #define BARBARIAN_HPP
+#include <string>
 
 class Barbarian : public Character
 {
 public:
-	Barbarian();
-
+	Barbarian(std::string name);
+	
 	virtual void attack(Character* defender);
 	virtual void defend(int);
 	virtual void damageIN(int x);

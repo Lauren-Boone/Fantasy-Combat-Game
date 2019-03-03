@@ -118,21 +118,25 @@
     <ClInclude Include="Barbarian.hpp" />
     <ClInclude Include="BlueMen.hpp" />
     <ClInclude Include="Character.hpp" />
+    <ClInclude Include="Container.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="HarryPotter.hpp" />
     <ClInclude Include="InputValidation.hpp" />
     <ClInclude Include="Medusa.hpp" />
+    <ClInclude Include="Menu.hpp" />
     <ClInclude Include="Vampire.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Barbarian.cpp" />
     <ClCompile Include="BlueMen.cpp" />
     <ClCompile Include="Character.cpp" />
+    <ClCompile Include="Container.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="HarryPotter.cpp" />
     <ClCompile Include="InputValidation.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Medusa.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Vampire.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

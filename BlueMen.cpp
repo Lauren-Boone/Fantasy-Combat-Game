@@ -12,39 +12,55 @@ inherited from character class.
 #include <string>
 #include <iomanip>
 
-BlueMen::BlueMen() : Character(3, 12) {
+BlueMen::BlueMen(std::string name) : Character(3, 12, name) {
 	numDefense_die = 3;
-	charName = "Blue Men";
 	
 }
 
-
+/*************************************
+attack()
+This functions has instructions for
+how the BlueMEn will attack
+*******************************************/
 void BlueMen::attack(Character* defender) {
 	int attackRoll=0;
 	for (int x = 0; x < 2; ++x) {
 		attackRoll += 1 + rand() % 10;
 	}
-	std::cout << "Blue Men's Attacking Roll: " << attackRoll << std::endl;
+	//std::cout << "Blue Men's Attacking Roll: " << attackRoll << std::endl;
 	defender->defend(attackRoll);
 }
 
-
+/*********************************************
+defend()
+This functions has instructions for how the
+Blue Men defends attacks based on their roll
+damage is calculated and sent to damageIn()
+*******************************************/
 void BlueMen::defend(int roll) {
 	int defenseRoll = 0;
 	for (int i = 0; i < numDefense_die; ++i) {
 		defenseRoll += 1 + rand() % 6;
 	}
-	std::cout << "Blue Men's Defense Roll: " << defenseRoll << std::endl;
+	//std::cout << "Blue Men's Defense Roll: " << defenseRoll << std::endl;
 	int damage = roll - defenseRoll - this->armor;
 	if (damage < 0) {
 		damage = 0;
 	}
-	std::cout << "Total Damage: " << damage << std::endl;
+	//std::cout << "Total Damage: " << damage << std::endl;
 	this->damageIN(damage);
 
 }
 
-
+/********************************
+damageIn
+This functions calculates strength
+based on damage. If strength is 0
+the character isAlive = false;
+Special ability: For each
+4points of damages they loose 
+one defend die.
+********************************/
 void BlueMen::damageIN(int x) {
 	strength -= x;
 	if (x >= 4) { //mob
@@ -64,17 +80,13 @@ void BlueMen::damageIN(int x) {
 		isAlive = false;
 	}
 	else {
-		std::cout << "Blue Men take " << x << " points of damage. \nStrength is " << strength << std::endl;
+		//std::cout << "Blue Men take " << x << " points of damage. \nStrength is " << strength << std::endl;
 	}
 }
 
 
 
-/*void BlueMen::medusaCharm() {
-	std::cout << "the blue men have been turned to stone" << std::endl;
-	damageIN(this->strength);
-}
-*/
+
 
 
 

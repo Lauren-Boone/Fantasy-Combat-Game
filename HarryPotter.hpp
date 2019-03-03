@@ -10,6 +10,7 @@ from character class.
 #include "Character.hpp"
 #ifndef HARRYPOTTER_HPP
 #define HARRYPOTTER_HPP
+#include <string>
 
 
 class HarryPotter : public Character
@@ -18,7 +19,7 @@ protected:
 	int deathCount;
 
 public:
-	HarryPotter();
+	HarryPotter(std::string name);
 	virtual void attack(Character* defender);
 	virtual void defend(int roll);
 	virtual void damageIN(int x);
